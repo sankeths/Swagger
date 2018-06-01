@@ -3,6 +3,8 @@ swagger: "2.0"
 info:
   description: |
     A supercool demo site that takes care of your uber cool demos.
+
+
     This is for exclusive use of SmartBear Sales Engineers.
   version: 1.0.0
   title: Awesome Shopping Store
