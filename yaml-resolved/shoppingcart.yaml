@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: |
-    A supercool demo site that takes care of your uber cool demos.</br> For exclusive use of __SmartBear__ Sales Engineers.</br>
+    A supercool demo site that takes care of your uber cool demos.</br> For exclusive use of <b style= "font-family: Arial;font-size: 24px;color:#4278d2;">SmartBear</b> Sales Engineers.</br>
     <img src="https://raw.githubusercontent.com/sankeths/Swagger/master/awesomeShoppingStore.PNG" alt="Smiley face" >
   version: 1.0.0
   title: Awesome Shopping Store
