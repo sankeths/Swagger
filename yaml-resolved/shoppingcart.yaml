@@ -13,7 +13,7 @@ info:
     name: Private License
     url: http://smartbear.com
 host: localhost
-basePath: /php/demo
+basePath: /shoppingcart
 schemes:
 - http
 paths:
