@@ -160,10 +160,56 @@ paths:
               $ref: '#/definitions/inline_response_200_4'
       security:
       - basic: []
+  /shoppingcart/service_creditcard.php:
+    post:
+      description: External Service to make Creditcard payments
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: POSTDATA
+        description: Creates a new employee in DB
+        required: false
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/POSTDATA_1'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/inline_response_200_5'
+      security:
+      - basic: []
 securityDefinitions:
   basic:
     type: basic
 definitions:
+  inline_response_200_5:
+    properties:
+      Status:
+        type: string
+        example: Transaction Approved
+        description: Status of transaction
+      Reason:
+        type: string
+        example: Approved
+        description: Status Readon
+      Status Code:
+        type: integer
+        example: 100
+        description: Status code for the tramsaction
+      Order ID:
+        type: integer
+        example: 15
+        description: ID of the order
+    example:
+      Status: Transaction Approved
+      Status Code: 100
+      Order ID: 15
+      Reason: Approved
   POSTDATA:
     properties:
       quantity:
@@ -369,6 +415,40 @@ definitions:
       order_id: 1
       paymenttype: card
       status: 0
+  POSTDATA_1:
+    properties:
+      id:
+        type: integer
+        example: 33
+        description: Order ID
+      action:
+        type: string
+        example: placeOrdercc
+        description: placeOrdercc
+      cc_money:
+        type: number
+        example: 798.0
+        description: Order amount
+      cc_name:
+        type: string
+        example: S S
+        description: Cardholders name
+      cc_number:
+        type: integer
+        example: 9234123412341234
+        description: cc number
+      cc_exp_mo:
+        type: integer
+        example: 1
+        description: cc expiry month
+      cc_exp_yr:
+        type: integer
+        example: 2018
+        description: cc expiry year
+      cc_cvv:
+        type: integer
+        example: 123
+        description: cc expiry year
 parameters:
   pathParam:
     name: type
