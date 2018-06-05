@@ -190,9 +190,7 @@ paths:
         description: Creates a new employee in DB
         required: false
         schema:
-          type: array
-          items:
-            $ref: '#/definitions/POSTDATA_1'
+          $ref: '#/definitions/POSTDATA_1'
       responses:
         200:
           description: OK
@@ -433,6 +431,7 @@ definitions:
       paymenttype: card
       status: 0
   POSTDATA_1:
+    type: object
     properties:
       id:
         type: integer
@@ -466,6 +465,15 @@ definitions:
         type: integer
         example: 123
         description: cc expiry year
+    example:
+      cc_exp_mo: 1
+      action: placeOrdercc
+      id: 33
+      cc_cvv: 123
+      cc_money: 798.0
+      cc_name: S S
+      cc_number: 9234123412341234
+      cc_exp_yr: 2018
 parameters:
   pathParam:
     name: type
