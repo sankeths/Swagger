@@ -16,8 +16,8 @@ host: localhost
 basePath: /shoppingcart
 tags:
 - name: Internal calls
-  description: Operations available to regular developers
-- name: External Calls
+  description: Operations available to regular development, integration, test teams.
+- name: External calls
   description: Operations dependent on third party service.
 schemes:
 - http
@@ -178,7 +178,7 @@ paths:
   /shoppingcart/service_creditcard.php:
     post:
       tags:
-      - External Calls
+      - External calls
       description: External Service to make Creditcard payments
       consumes:
       - application/json
