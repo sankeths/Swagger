@@ -22,7 +22,7 @@ tags:
 schemes:
 - http
 paths:
-  /api/get_login.php:
+  /{type}/get_login/:
     get:
       tags:
       - Internal calls
