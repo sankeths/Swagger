@@ -22,7 +22,7 @@ tags:
 schemes:
 - http
 paths:
-  /{type}/get_login/:
+  /api/get_login.php:
     get:
       tags:
       - Internal calls
@@ -71,9 +71,6 @@ paths:
                   example: Bangalore, India
                   description: Users address
           responseSchema:
-            xml:
-              name: Response
-              wrapped: false
             type: array
             items:
               type: object
@@ -161,9 +158,6 @@ paths:
                   example: 1 or 0
                   description: Status of the user
           responseSchema:
-            xml:
-              name: Products
-              wrapped: true
             type: array
             items:
               type: object
@@ -263,9 +257,6 @@ paths:
                   example: card
                   description: Order payment method
           responseSchema:
-            xml:
-              name: Orders
-              wrapped: true
             type: array
             items:
               type: object
@@ -357,9 +348,6 @@ paths:
                   example: 3996.0
                   description: Total price of the order
           responseSchema:
-            xml:
-              name: Orders
-              wrapped: false
             type: array
             items:
               type: object
@@ -448,9 +436,6 @@ paths:
                   example: card
                   description: Order payment method
           responseSchema:
-            xml:
-              name: Orders
-              wrapped: true
             type: array
             items:
               type: object
