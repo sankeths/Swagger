@@ -12,15 +12,14 @@ info:
   license:
     name: Private License
     url: http://smartbear.com
-host: virtserver.swaggerhub.com
-basePath: /sanketh/Awesome_Shopping_Store_Sanketh/1.0.0
+host: localhost
+basePath: /shoppingcart
 tags:
 - name: Internal calls
   description: Operations available to regular development, integration, test teams.
 - name: External calls
   description: Operations dependent on third party service.
 schemes:
-- https
 - http
 paths:
   /{type}/get_login/:
