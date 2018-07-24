@@ -12,14 +12,15 @@ info:
   license:
     name: Private License
     url: http://smartbear.com
-host: localhost
-basePath: /shoppingcart
+host: virtserver.swaggerhub.com
+basePath: /sanketh/Awesome_Shopping_Store_Sanketh/1.0.0
 tags:
 - name: Internal calls
   description: Operations available to regular development, integration, test teams.
 - name: External calls
   description: Operations dependent on third party service.
 schemes:
+- https
 - http
 paths:
   /{type}/get_login/:
@@ -66,7 +67,7 @@ paths:
                   type: integer
                   example: 9482517924
                   description: users phone number
-                eddress:
+                address:
                   type: string
                   example: Bangalore, India
                   description: Users address
@@ -95,7 +96,7 @@ paths:
                   type: integer
                   example: 9482517924
                   description: users phone number
-                eddress:
+                address:
                   type: string
                   example: Bangalore, India
                   description: Users address
@@ -612,7 +613,7 @@ definitions:
         type: integer
         example: 9482517924
         description: users phone number
-      eddress:
+      address:
         type: string
         example: Bangalore, India
         description: Users address
