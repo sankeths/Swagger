@@ -101,48 +101,6 @@ paths:
                   description: Users address
       security:
       - basic: []
-  /api/:
-    post:
-      tags:
-      - External calls
-      description: External Service to make Creditcard payments
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: POSTDATA
-        description: Creates a new employee in DB
-        required: false
-        schema:
-          $ref: '#/definitions/POSTDATA'
-      responses:
-        200:
-          description: OK
-          schema:
-            $ref: '#/definitions/inline_response_200_1'
-          responseSchema:
-            type: object
-            required:
-            - Reason
-            - Status
-            - Status Code
-            properties:
-              Status:
-                type: string
-                example: Transaction Approved
-                description: Status of transaction
-              Reason:
-                type: string
-                example: Approved
-                description: Status Readon
-              Status Code:
-                type: integer
-                example: 100
-                description: Status code for the tramsaction
-      security:
-      - basic: []
   /{type}/get_products/:
     get:
       tags:
@@ -364,7 +322,7 @@ paths:
         schema:
           type: array
           items:
-            $ref: '#/definitions/POSTDATA_1'
+            $ref: '#/definitions/POSTDATA'
       responses:
         200:
           description: OK
@@ -535,12 +493,12 @@ paths:
         description: Creates a new employee in DB
         required: false
         schema:
-          $ref: '#/definitions/POSTDATA'
+          $ref: '#/definitions/POSTDATA_1'
       responses:
         200:
           description: OK
           schema:
-            $ref: '#/definitions/inline_response_200_1'
+            $ref: '#/definitions/inline_response_200_5'
           responseSchema:
             type: object
             required:
@@ -567,6 +525,154 @@ securityDefinitions:
     type: basic
 definitions:
   inline_response_200_5:
+    required:
+    - Reason
+    - Status
+    - Status Code
+    properties:
+      Status:
+        type: string
+        example: Transaction Approved
+        description: Status of transaction
+      Reason:
+        type: string
+        example: Approved
+        description: Status Readon
+      Status Code:
+        type: integer
+        example: 100
+        description: Status code for the tramsaction
+    example:
+      Status: Transaction Approved
+      Status Code: 100
+      Reason: Approved
+  POSTDATA:
+    properties:
+      quantity:
+        type: integer
+        example: 1
+        description: Product Quantity
+      product_id:
+        type: integer
+        example: 1
+        description: Product Id
+  inline_response_200_1:
+    properties:
+      id:
+        type: integer
+        example: 1
+        description: Product id
+      name:
+        type: string
+        example: iPhone
+        description: Product Name
+      description:
+        type: string
+        example: This is an rare iphone
+        description: Product Description
+      image:
+        type: string
+        example: iphone.jpg
+        description: Product Image
+      price:
+        type: number
+        example: 999.0
+        description: Price of the product
+      created:
+        type: string
+        example: 2018-05-05 00:00:00
+        description: Date time of creation
+      modified:
+        type: string
+        example: 2018-05-05 00:00:00
+        description: Date time of creation
+      status:
+        type: integer
+        example: 1 or 0
+        description: Status of the user
+  inline_response_200:
+    properties:
+      id:
+        type: integer
+        example: 1
+        description: User id
+      name:
+        type: string
+        example: Sanketh
+        description: Users first name
+      last_name:
+        type: string
+        example: Shanbhag
+        description: Users last name
+      email:
+        type: string
+        example: sanketh.shanbhag@smartbear.com
+        description: Users email
+      phone:
+        type: integer
+        example: 9482517924
+        description: users phone number
+      address:
+        type: string
+        example: Bangalore, India
+        description: Users address
+  inline_response_200_2:
+    properties:
+      id:
+        type: integer
+        example: 1
+        description: Order's ID
+      customer_id:
+        type: integer
+        example: 1
+        description: Customer ID
+      total_price:
+        type: number
+        example: 999.0
+        description: Total Order Price
+      status:
+        type: integer
+        example: 0
+        description: Status of the order for internal use.
+      order_id:
+        type: integer
+        example: 1
+        description: Order ID
+      quantity:
+        type: integer
+        example: 1
+        description: Quantity
+      price:
+        type: number
+        example: 1.0
+        description: Price of the product
+      image:
+        type: string
+        example: iphone.jpeg
+        description: Image of the product
+      paymenttype:
+        type: string
+        example: card
+        description: Order payment method
+  inline_response_200_3:
+    properties:
+      Order ID:
+        type: integer
+        example: 298
+        description: Order ID
+      Order Item ID:
+        type: integer
+        example: 643
+        description: Product Id
+      Item Total Price:
+        type: number
+        example: 1998.0
+        description: Total price of item
+      Total Order Price:
+        type: number
+        example: 3996.0
+        description: Total price of the order
+  inline_response_200_4:
     properties:
       id:
         type: integer
@@ -604,7 +710,7 @@ definitions:
         type: string
         example: card
         description: Order payment method
-  POSTDATA:
+  POSTDATA_1:
     type: object
     properties:
       id:
@@ -648,154 +754,6 @@ definitions:
       cc_name: S S
       cc_number: 9234123412341234
       cc_exp_yr: 2018
-  inline_response_200_1:
-    required:
-    - Reason
-    - Status
-    - Status Code
-    properties:
-      Status:
-        type: string
-        example: Transaction Approved
-        description: Status of transaction
-      Reason:
-        type: string
-        example: Approved
-        description: Status Readon
-      Status Code:
-        type: integer
-        example: 100
-        description: Status code for the tramsaction
-    example:
-      Status: Transaction Approved
-      Status Code: 100
-      Reason: Approved
-  inline_response_200:
-    properties:
-      id:
-        type: integer
-        example: 1
-        description: User id
-      name:
-        type: string
-        example: Sanketh
-        description: Users first name
-      last_name:
-        type: string
-        example: Shanbhag
-        description: Users last name
-      email:
-        type: string
-        example: sanketh.shanbhag@smartbear.com
-        description: Users email
-      phone:
-        type: integer
-        example: 9482517924
-        description: users phone number
-      address:
-        type: string
-        example: Bangalore, India
-        description: Users address
-  inline_response_200_2:
-    properties:
-      id:
-        type: integer
-        example: 1
-        description: Product id
-      name:
-        type: string
-        example: iPhone
-        description: Product Name
-      description:
-        type: string
-        example: This is an rare iphone
-        description: Product Description
-      image:
-        type: string
-        example: iphone.jpg
-        description: Product Image
-      price:
-        type: number
-        example: 999.0
-        description: Price of the product
-      created:
-        type: string
-        example: 2018-05-05 00:00:00
-        description: Date time of creation
-      modified:
-        type: string
-        example: 2018-05-05 00:00:00
-        description: Date time of creation
-      status:
-        type: integer
-        example: 1 or 0
-        description: Status of the user
-  inline_response_200_3:
-    properties:
-      id:
-        type: integer
-        example: 1
-        description: Order's ID
-      customer_id:
-        type: integer
-        example: 1
-        description: Customer ID
-      total_price:
-        type: number
-        example: 999.0
-        description: Total Order Price
-      status:
-        type: integer
-        example: 0
-        description: Status of the order for internal use.
-      order_id:
-        type: integer
-        example: 1
-        description: Order ID
-      quantity:
-        type: integer
-        example: 1
-        description: Quantity
-      price:
-        type: number
-        example: 1.0
-        description: Price of the product
-      image:
-        type: string
-        example: iphone.jpeg
-        description: Image of the product
-      paymenttype:
-        type: string
-        example: card
-        description: Order payment method
-  inline_response_200_4:
-    properties:
-      Order ID:
-        type: integer
-        example: 298
-        description: Order ID
-      Order Item ID:
-        type: integer
-        example: 643
-        description: Product Id
-      Item Total Price:
-        type: number
-        example: 1998.0
-        description: Total price of item
-      Total Order Price:
-        type: number
-        example: 3996.0
-        description: Total price of the order
-  POSTDATA_1:
-    properties:
-      quantity:
-        type: integer
-        example: 1
-        description: Product Quantity
-      product_id:
-        type: integer
-        example: 1
-        description: Product Id
 parameters:
   pathParam:
     name: type
