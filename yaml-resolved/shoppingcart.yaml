@@ -5,7 +5,7 @@ info:
     A supercool demo site that takes care of your uber cool demo.</br> For exclusive use of <b style= "font-family: Arial;font-size: 24px;color:#4278d2;">SMARTBear</b> Sales Engineers.</br>
     <img src="https://raw.githubusercontent.com/sankeths/Swagger/master/awesomeShoppingStore.PNG" alt="ShoppingCart" >
   version: 1.0.0
-  title: Awesome Shopping Store
+  title: Awesome Shopping Store v1
   termsOfService: http://smartbear.com
   contact:
     email: sanketh.shanbhag@smartbear.com
@@ -70,35 +70,6 @@ paths:
                   type: string
                   example: Bangalore, India
                   description: Users address
-          responseSchema:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 1
-                  description: User id
-                name:
-                  type: string
-                  example: Sanketh
-                  description: Users first name
-                last_name:
-                  type: string
-                  example: Shanbhag
-                  description: Users last name
-                email:
-                  type: string
-                  example: sanketh.shanbhag@smartbear.com
-                  description: Users email
-                phone:
-                  type: integer
-                  example: 9482517924
-                  description: users phone number
-                address:
-                  type: string
-                  example: Bangalore, India
-                  description: Users address
       security:
       - basic: []
   /{type}/get_products/:
@@ -121,43 +92,6 @@ paths:
         200:
           description: OK
           schema:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 1
-                  description: Product id
-                name:
-                  type: string
-                  example: iPhone
-                  description: Product Name
-                description:
-                  type: string
-                  example: This is an rare iphone
-                  description: Product Description
-                image:
-                  type: string
-                  example: iphone.jpg
-                  description: Product Image
-                price:
-                  type: number
-                  example: 999.0
-                  description: Price of the product
-                created:
-                  type: string
-                  example: 2018-05-05 00:00:00
-                  description: Date time of creation
-                modified:
-                  type: string
-                  example: 2018-05-05 00:00:00
-                  description: Date time of creation
-                status:
-                  type: integer
-                  example: 1 or 0
-                  description: Status of the user
-          responseSchema:
             type: array
             items:
               type: object
@@ -256,47 +190,6 @@ paths:
                   type: string
                   example: card
                   description: Order payment method
-          responseSchema:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 1
-                  description: Order's ID
-                customer_id:
-                  type: integer
-                  example: 1
-                  description: Customer ID
-                total_price:
-                  type: number
-                  example: 999.0
-                  description: Total Order Price
-                status:
-                  type: integer
-                  example: 0
-                  description: Status of the order for internal use.
-                order_id:
-                  type: integer
-                  example: 1
-                  description: Order ID
-                quantity:
-                  type: integer
-                  example: 1
-                  description: Quantity
-                price:
-                  type: number
-                  example: 1.0
-                  description: Price of the product
-                image:
-                  type: string
-                  example: iphone.jpeg
-                  description: Image of the product
-                paymenttype:
-                  type: string
-                  example: card
-                  description: Order payment method
       security:
       - basic: []
   /{type}/post_order/:
@@ -327,27 +220,6 @@ paths:
         200:
           description: OK
           schema:
-            type: array
-            items:
-              type: object
-              properties:
-                Order ID:
-                  type: integer
-                  example: 298
-                  description: Order ID
-                Order Item ID:
-                  type: integer
-                  example: 643
-                  description: Product Id
-                Item Total Price:
-                  type: number
-                  example: 1998.0
-                  description: Total price of item
-                Total Order Price:
-                  type: number
-                  example: 3996.0
-                  description: Total price of the order
-          responseSchema:
             type: array
             items:
               type: object
@@ -435,47 +307,6 @@ paths:
                   type: string
                   example: card
                   description: Order payment method
-          responseSchema:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 1
-                  description: Order's ID
-                customer_id:
-                  type: integer
-                  example: 1
-                  description: Customer ID
-                name:
-                  type: string
-                  example: Iphone
-                  description: product Name
-                total_price:
-                  type: number
-                  example: 999.0
-                  description: Total Order Price
-                status:
-                  type: integer
-                  example: 0
-                  description: Status of the order for internal use.
-                order_id:
-                  type: integer
-                  example: 1
-                  description: Order ID
-                quantity:
-                  type: integer
-                  example: 1
-                  description: Quantity
-                price:
-                  type: number
-                  example: 1.0
-                  description: Price of the product
-                paymenttype:
-                  type: string
-                  example: card
-                  description: Order payment method
       security:
       - basic: []
   /shoppingcart/service_creditcard.php:
@@ -498,8 +329,6 @@ paths:
         200:
           description: OK
           schema:
-            $ref: '#/definitions/inline_response_200_5'
-          responseSchema:
             type: object
             required:
             - Reason
@@ -542,10 +371,6 @@ definitions:
         type: integer
         example: 100
         description: Status code for the tramsaction
-    example:
-      Status: Transaction Approved
-      Status Code: 100
-      Reason: Approved
   POSTDATA:
     properties:
       quantity:
@@ -745,15 +570,6 @@ definitions:
         type: integer
         example: 123
         description: cc expiry year
-    example:
-      cc_exp_mo: 1
-      action: placeOrdercc
-      id: 33
-      cc_cvv: 123
-      cc_money: 798.0
-      cc_name: S S
-      cc_number: 9234123412341234
-      cc_exp_yr: 2018
 parameters:
   pathParam:
     name: type
