@@ -130,6 +130,64 @@ paths:
                   description: Status of the user
       security:
       - basic: []
+  /{type}/get_products2/:
+    get:
+      tags:
+      - Internal calls
+      description: Get list of all products
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: type
+        in: path
+        description: json or xml
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                  description: Product id
+                name:
+                  type: string
+                  example: iPhone
+                  description: Product Name
+                description:
+                  type: string
+                  example: This is an rare iphone
+                  description: Product Description
+                image:
+                  type: string
+                  example: iphone.jpg
+                  description: Product Image
+                price:
+                  type: number
+                  example: 999.0
+                  description: Price of the product
+                created:
+                  type: string
+                  example: 2018-05-05 00:00:00
+                  description: Date time of creation
+                modified:
+                  type: string
+                  example: 2018-05-05 00:00:00
+                  description: Date time of creation
+                status:
+                  type: integer
+                  example: 1 or 0
+                  description: Status of the user
+      security:
+      - basic: []
   /{type}/get_orders/:
     get:
       tags:
